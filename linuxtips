@@ -1,0 +1,9 @@
+nmcli d wifi connect ssid password password
+nmcli d wifi list
+###############git############################################
+make local directory
+create file(s)
+
+git init
+git remote add champ https://github.com/willyblaise/Linux.git
+git remote rm origin
