@@ -7,3 +7,5 @@ create file(s)
 git init
 git remote add champ https://github.com/willyblaise/Linux.git
 git remote rm origin
+git remote add origin https://github.com/willyblaise/Linux.git
+git push origin master
