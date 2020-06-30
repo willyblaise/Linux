@@ -1,5 +1,58 @@
+########################################################
+#                                                      #
+#   check battery power via cmd line                   #
+#                                                      #
+########################################################
+upower -i /org/freedesktop/UPower/devices/battery_BAT1
+upower -i `upower -e | grep 'BAT'`
+free -h
+sensors
+
+#change default terminal
+sudo update-alternatives --config x-terminal-emulator
+
+
+
+#secret key stuff
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-form LONG
+Remove cacerts and link to /etc/ssl/certs by the following commands
+
+#this is how i got Citrix workspace working
+cd /opt/Citrix/ICAClient/keystore/
+sudo rm -rf cacerts
+sudo ln -s /etc/ssl/certs cacerts
+
+#Network connectivity
+nmcli d wifi list
+nmcli d wifi connect my_network password <passwd>
+nmcli r wifi on
+nmcli d
+convert serena.jpg -swirl 120 -gravity right serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
+convert serena.jpg -swirl 120 serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
+convert serena.jpg -swirl 120 /tmp/outputserena.jpg
+groff -ms groff.ms -T pdf
+sudo dmidecode -t system
+lsb_release -a
+
+#user account mods
+useradd -m /home/username username
+useradd -m -d /home/username username #home directory other than default
+useradd -g groupname username
+useradd -g users -G wheel, developers username
+#add or remove from group
+gpasswd -a username
+gpasswd -d username
+gruopadd groupname
+userdel -r username
+usermod -a -G groupname username
+useradd -e date username
+sudo chage -l username
+chage -M days username
+sudo chage -E 2020-06-16 nicole
 nmcli d wifi connect ssid password password
 nmcli d wifi list
+
 ###############git############################################
 make local directory
 create file(s)
