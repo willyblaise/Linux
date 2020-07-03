@@ -74,3 +74,9 @@ wpa_passphrase ssid password
 sudo mv lf /usr/local/bin/
 wget https://github.com/gokcehan/lf/releases/download/r6/lf-linux-amd64.tar.gz -O lf-linux-amd64.tar.gz
 tar xvf lf-linux-amd64.tar.gz
+sudo sv status /var/service/acpid /var/service/agetty-hvc0 /var/service/agetty-hvsi0 /var/service/agetty-tty1 /var/service/agetty-tty2 /var/service/agetty-tty3 /var/service/agetty-tty4 /var/service/agetty-tty5 /var/service/agetty-tty6 /var/service/dhcpcd /var/service/sshd /var/service/udevd /var/service/uuidd
+sudo sv status dhcpcd
+sudo sv status /var/service/NetworkManager /var/service/acpid /var/service/agetty-hvc0 /var/service/agetty-hvsi0 /var/service/agetty-tty1 /var/service/agetty-tty2 /var/service/agetty-tty3 /var/service/agetty-tty4 /var/service/agetty-tty5 /var/service/agetty-tty6 /var/service/dbus /var/service/sshd /var/service/udevd /var/service/uuidd
+location for services /etc/sv/
+location for symbolic linking /var/service/ to enable/disable services
+sv up/down/status service
