@@ -43,7 +43,7 @@ useradd -g users -G wheel, developers username
 #add or remove from group
 gpasswd -a username
 gpasswd -d username
-gruopadd groupname
+groupadd groupname
 userdel -r username
 usermod -a -G groupname username
 useradd -e date username
