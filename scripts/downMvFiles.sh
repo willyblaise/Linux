@@ -21,6 +21,6 @@ moveZip(){
 	[[ -d $HOME/Downloads/pdf ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
 }
 
-movIso
+moveIso
 movePdf
 moveZip
