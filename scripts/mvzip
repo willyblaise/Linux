@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[[ ! -d ~/Downloads/zip/ ]] && mkdir ~/Downloads/zip || echo dir exists nothing created
+
+if ls ~/Downloads/*.zip > /dev/null 2>&1
+then
+	mv ~/Downloads/*.zip ~/Downloads/zip
+else
+	echo nothing to move
+	exit 2
+fi
