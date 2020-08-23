@@ -85,3 +85,6 @@ sudo sv status /var/service/NetworkManager /var/service/acpid /var/service/agett
 location for services /etc/sv/
 location for symbolic linking /var/service/ to enable/disable services
 sv up/down/status service
+
+/x11 dependencies
+apt-get install libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
