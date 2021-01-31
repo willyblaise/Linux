@@ -90,3 +90,4 @@ sv up/down/status service
 apt-get install libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
 sudo date +%T -s 12:38:35PM
 sudo hwclock -w
+lsb_release -a
