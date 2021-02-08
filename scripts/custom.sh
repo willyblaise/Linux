@@ -6,7 +6,7 @@ se(){
 	#du -a ~/.scripts/* ~/.config/* | awk '{ print $2 }' | fzf | xargs -r nvim;
 }
 
-up(){
+wet(){
 	city=$1
 
 	if [ -z $city ];then
