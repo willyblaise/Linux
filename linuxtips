@@ -97,3 +97,4 @@ sudo pacman -Syu --noconfirm --needed --overwrite *
 
 //find out what program is currently being used	
 xprop
+-starship is a good program
