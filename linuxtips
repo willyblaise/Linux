@@ -62,6 +62,7 @@ git remote add champ https://github.com/willyblaise/Linux.git
 git remote rm origin
 git remote add origin https://github.com/willyblaise/Linux.git
 git push origin master
+git config --global credential.helper cache
 
 ##################Void Linux###########################################
 chsh -s /bin/bash
