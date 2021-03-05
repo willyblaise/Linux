@@ -63,6 +63,7 @@ git remote rm origin
 git remote add origin https://github.com/willyblaise/Linux.git
 git push origin master
 git config --global credential.helper cache
+git config --global --unset credential.helper
 
 ##################Void Linux###########################################
 chsh -s /bin/bash
