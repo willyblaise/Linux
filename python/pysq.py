@@ -1,5 +1,9 @@
+#!/bin/env python3
 
-def add(x,y):
+import bank
+
+
+def add(x: int,y: int) -> int:
     return x + y
 
 
@@ -18,3 +22,10 @@ def sqUp():
 if __name__ == "__main__":
     sqUp()
 
+    checking = bank.Bank_Account()
+
+    checking.deposit()
+    checking.withdraw()
+    print(checking.__dict__)
+    nb = checking.get_balance()
+    print(f"final balance is {nb}")
