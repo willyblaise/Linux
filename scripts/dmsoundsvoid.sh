@@ -1,9 +1,10 @@
 #!/bin/env bash
 
 
-set -euo pipefail
+#set -euo pipefail
 
-sounds=~/Music/56nights
+#sounds=~/Music/56nights
+sounds=~/Music/Future\ -\ EVOL
 
 soundFiles=$(/bin/ls -1 "$sounds" | grep ".mp3")
 

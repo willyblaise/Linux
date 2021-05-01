@@ -2,39 +2,38 @@
 
 
 tickets="$1"
-echo $1
-get_tickets(){ 
-	printf "How many tickets are you going to get? "; 
+
+get_tickets(){
+	printf "How many tickets are you going to get? ";
 	read tickets;
 }
 
-function gen_numbers { printf "\nThese are your winning lottery numbers: \n"; 
+function gen_numbers { printf "\nThese are your winning lottery numbers: \n";
 
     for ((z=1 ; z<=tickets ; z++)); do
-         for ((i=0; i<6; i++ )); do 
-            x=`echo $[ 1 + $[ RANDOM % 49 ]]`; 
-            printf "\t $x"; 
+         for ((i=0; i<6; i++ )); do
+            x=`echo $[ 1 + $[ RANDOM % 49 ]]`;
+            printf "\t $x";
          done;
-         printf "\n" 
-    done; 
-    printf "\n"; 
+         printf "\n"
+    done;
+    printf "\n";
 }
 
 get_numbers2() {
 
-	for(( i=1; i<=tickets; i++)); 
+        printf "\nThese are your winning lottery numbers: \n";
+	for(( i=1; i<=tickets; i++));
 	do shuf -i 1-49 -n6; done | xargs -n6
 
 }
 
 ############################
 if [[ -z $tickets ]]  ; then
-    
-    echo what is going on here exactly?
+
     echo $tickets
     get_tickets
     gen_numbers
-    get_numbers2
 else
     get_numbers2
 fi
