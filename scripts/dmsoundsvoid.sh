@@ -73,6 +73,6 @@ elif [ $hostname == "ArchLinux" ];
 then
 	music
 else
-	printf "Looks like this is not Void"
+	printf "Looks like this is not Void or Arch"
 	exit 0
 fi
