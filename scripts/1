@@ -43,10 +43,10 @@ case $host in
 		echo this is Apple
 		;;
 	"Arch")
-		echo This is Arch
 		rock
 		;;
 	*)
 		echo well try again
 		;;
 esac
+echo $host
