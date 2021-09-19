@@ -29,9 +29,31 @@ get_numbers2() {
 }
 
 ############################
-if [[ -z $tickets ]]  ; then
+PARSED_ARGUMENTS=$(getopt -a -n $0 -o t --long tickets: -- "$@")
+VALID_ARGUMENTS=$?
 
-    echo $tickets
+echo $VALID_ARGUMENTS Output
+
+if [ "$VALID_ARGUMENTS" != "0" ];then
+        echo The proper arguments are -t for the moment.
+        exit 2
+fi
+
+while getopts t: flag
+        do
+                case "${flag}" in
+                        t)
+                                tickets=$OPTARG
+                                ;;
+                        *)
+                                echo it looks like nothing valid was chosen.
+                                ;;
+                esac
+        done
+
+if [[ -z $tickets ]];
+then
+    echo you did not choose tickets.
     get_tickets
     gen_numbers
 else

@@ -3,7 +3,7 @@
 
 #set -euo pipefail
 
-hostname=`lsb_release -a | grep VoidLinux | cut -d ":" -f 2 | xargs`
+hostname=`lsb_release -a | grep -m 1 'VoidLinux\|Arch' | cut -d ":" -f 2 | xargs`
 
 
 declare -a options=(
@@ -66,10 +66,10 @@ melodies () {
 
 }
 
-if [ $hostname == "VoidLinux" ];
+if [ "$hostname" == "VoidLinux" ];
 then
 	melodies
-elif [ $hostname == "ArchLinux" ];
+elif [ "$hostname" == "Arch" ];
 then
 	music
 else
