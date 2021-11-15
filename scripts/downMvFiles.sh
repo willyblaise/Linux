@@ -3,7 +3,7 @@
 
 moveIso(){
 
-	[[ -d Downloads/ ]] && mkdir Downloads/iso || echo Directory already Exists
+	[[ ! -d ~/Downloads/iso ]] && mkdir ~/Downloads/iso || echo Directory already Exists
 	[[ -d $HOME/Downloads/iso ]] && mv $HOME/Downloads/*.iso $HOME/Downloads/iso
 }
 
@@ -11,13 +11,13 @@ moveIso(){
 
 movePdf(){
 
-	[[ -d Downloads/ ]] && mkdir Downloads/pdf || echo Directory already Exists
+	[[ ! -d ~/Downloads/pdf ]] && mkdir ~/Downloads/pdf || echo Directory already Exists
 	[[ -d $HOME/Downloads/pdf ]] && mv $HOME/Downloads/*.pdf $HOME/Downloads/pdf
 }
 
 moveZip(){
 
-	[[ -d Downloads/ ]] && mkdir Downloads/zip || echo Directory already Exists
+	[[ -d ~/Downloads/zip ]] && mkdir ~/Downloads/zip || echo Directory already Exists
 	[[ -d $HOME/Downloads/pdf ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
 }
 
