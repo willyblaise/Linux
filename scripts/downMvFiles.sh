@@ -21,6 +21,23 @@ moveZip(){
 	[[ -d $HOME/Downloads/pdf ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
 }
 
-moveIso
-movePdf
-moveZip
+read -p "What type of file move would you like? " operation
+
+case $operation in
+	"iso")
+		moveIso
+		;;
+	"pdf")
+		movePdf
+		;;
+	"zip")
+		moveZip
+		;;
+	"all")
+		moveIso
+		movePdf
+		moveZip
+		;;
+	*)
+		echo Nothing to here.
+esac
