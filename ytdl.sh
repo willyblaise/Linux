@@ -1,18 +1,16 @@
 #!/bin/bash
 
 cb=()
-echo Please provide the number of elements: 
-read length
+read -p "Please provide the number of elements: " length
 
 until [ $length -lt 1 ]
-do 
-    echo Please provide a name:
-    read name
+do
+    read -p "Please provide a link: " name
     cb+=($name)
     let "length=length-1"
 done
 
-echo list to follow below
+echo List to follow below.
 
 for i in ${cb[@]}
 do
