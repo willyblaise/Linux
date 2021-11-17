@@ -19,14 +19,41 @@ def factor(numb: int) -> int:
     else:
         return 1
 
+def average(*args):
+    length = len(args)
+    total = 0
+
+    if length > 0:
+        for val in args:
+            total += val
+
+    return total/length
+
+
+
 if __name__ == "__main__":
     
     start = time.time()
+    nums = []
+
+    value = int(input("How many values would you like to input? "))
+
+    for i in range(value):
+        elem = int(input("Please enter the numbers you want to add: "))
+        nums.append(elem)
+
+    
+    print(f"Number Array from standard in: {nums}")
+
+    #testing a method with random amount of args
+    mean = average(20,40,60)
+
+    print(f"The average based on the numbers provided is: {mean}")
 
     sum = add()
     print(f"Default sum is equal to: {sum}")
 
-    res = int(input("Please provide the numbers you want to sum: "))
+    res = int(input("Please provide the number you want to sum: "))
     total = add_numbers(res)
 
     factorial = factor(res)
