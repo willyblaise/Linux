@@ -1,4 +1,8 @@
 import random
+import time
+
+
+start = time.time()
 
 tickets = int(input("Please provide the number of tickets you would like: "))
 
@@ -26,3 +30,9 @@ while tickets > 0:
     print(f"{lotteryNumbers}")
     lotteryNumbers = []
     tickets -= 1
+
+stop = time.time()
+
+total = stop - start
+
+printf(f"Time to run is {total}")
