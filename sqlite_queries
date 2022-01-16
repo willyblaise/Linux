@@ -1,0 +1,3 @@
+select b.name, b.Age, sum(a.Units) as UnitsSoFar from inject a join subject b on a.subjectId = b.id;
+
+select b.name, b.Age, sum(a.Units) as UnitsSoFar, datetime(a.created_at, 'localtime') as "Local Time(CST)" from inject a join subject b on a.subjectId = b.id;
