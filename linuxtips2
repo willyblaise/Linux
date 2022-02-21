@@ -1,0 +1,53 @@
+chsh -s /bin/bash
+wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant-wlp3s0
+sudo dd if=/dev/sda4 of=/swapfile bs=1024 count=10048586
+sudo mkswap /swapfile
+sudo chmod 600 /swapfile
+sudo swapon /swapfile
+wpa_passphrase ssid password
+pass nicole
+
+
+//this is how to set the time manually
+sudo hwclock -w
+sudo date +%T -s 12:38:35PM
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+lsb_release -a
+
+//xbps-* commands
+Basic Usage
+
+To install a single package or list of packages (including dependencies), issue the following command:
+
+# xbps-install -S package_name1 package_name2 ...
+
+To search for a package:
+
+# xbps-query -Rs package_name
+
+To remove a single package, leaving all of its dependencies installed:
+
+# xbps-remove package_name
+
+To remove a single package and all of its dependencies that are not required by other packages:
+
+# xbps-remove -R package_name
+
+To synchronize your repository databases and update your system to the most recent packages, including their dependencies:
+
+# xbps-install -Su
+kitty --debug-config
+
+#when signing error occurs
+sudo xbps-pkgdb -m hold less
+sudo xbps-pkgdb -m unhold less
+
+#Cplus plush compile -lstdc++
+gcc -o factor factor.cpp -lstdc++
+nmap -sP 192.168.1.0/24
+ssh-keygen
+ssh-copy-id -i id_rsa.pub user@host
+nmcli device show
+nmcli device wifi connect ssid
+nmcli c up vm_varga
+nmcli c down vm_varga
