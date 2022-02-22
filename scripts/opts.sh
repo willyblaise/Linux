@@ -3,9 +3,15 @@
 
 
 
-PARSED_ARGUMENTS=$(getopt -a -n $0 -o n:a:c:w --long name:, age:, color:,weight -- "$@")
+#PARSED_ARGUMENTS=$(getopt -a -n $0 -o n:a:c:w --long name:, age:, color:,weight -- "$@")
 #PARSED_ARGUMENTS=$(getopt -a -n $0 -o n:a:c:w -- "$@")
+PARSED_ARGUMENTS=$(getopt -o n:a:c:w --long name:, age:, color:,weight -- "$@")
 VALID_ARGUMENTS=$?
+
+echo $VALID_ARGUMENTS output
+echo inp array is: $@
+echo inp array length is: $#
+
 
 if [ "$VALID_ARGUMENTS" != "0" ];then
 	echo The proper arguments are -a -n -c for the moment. 
@@ -29,6 +35,7 @@ while getopts n:a:c:w: flag
 				;;
 			*) 
 				echo it looks like nothing valid was chosen.
+				[[ ! ${flag} =~ n|a|c|w ]] && exit 2
 				;;
 		esac
 	done
