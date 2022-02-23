@@ -17,8 +17,8 @@ movePdf(){
 
 moveZip(){
 
-	[[ -d ~/Downloads/zip ]] && mkdir ~/Downloads/zip || echo Directory already Exists
-	[[ -d $HOME/Downloads/pdf ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
+	[[ ! -d ~/Downloads/zip ]] && mkdir ~/Downloads/zip || echo Directory already Exists
+	[[ -d $HOME/Downloads/zip ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
 }
 
 read -p "What type of file move would you like? " operation
