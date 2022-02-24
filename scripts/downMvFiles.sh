@@ -21,23 +21,48 @@ moveZip(){
 	[[ -d $HOME/Downloads/zip ]] && mv $HOME/Downloads/*.zip $HOME/Downloads/zip
 }
 
-read -p "What type of file move would you like? " operation
+moveJPG(){
 
-case $operation in
-	"iso")
-		moveIso
-		;;
-	"pdf")
-		movePdf
-		;;
-	"zip")
-		moveZip
-		;;
-	"all")
-		moveIso
-		movePdf
-		moveZip
-		;;
-	*)
-		echo Nothing to here.
-esac
+	[[ ! -d ~/Downloads/jpg ]] && mkdir ~/Downloads/jpg || echo Directory already Exists
+	[[ -d $HOME/Downloads/jpg ]] && mv $HOME/Downloads/*.jpg $HOME/Downloads/jpg
+	echo JPGs moved to destination
+}
+#read -p "What type of file move would you like? " operation
+
+while getopts ':aijp:z:' OPTION;
+do
+	case $OPTION in
+		i)
+			moveIso
+			;;
+
+		j)
+			moveJPG
+			;;
+
+		p)
+			pdf=$OPTARG
+			movePdf
+			echo $pdf moved
+			;;
+
+		z)
+			zip=$OPTARG
+			moveZip
+			echo $zip moved
+			;;
+
+		a)
+			moveIso
+			movePdf
+			moveZip
+			;;
+#		*)
+#			echo Nothing to do here.
+#			;;
+		?)
+      			echo "Usage: $(basename $0) [a] [-i] [j] [-p argument] [-z argument]"
+      			exit 1
+      			;;
+	esac
+done
