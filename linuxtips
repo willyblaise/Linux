@@ -25,9 +25,23 @@ sudo ln -s /etc/ssl/certs cacerts
 
 #Network connectivity
 nmcli d wifi list
+nmcli dev wifi list
 nmcli d wifi connect my_network password <passwd>
+nmcli dev wifi connect my_network password <passwd>
+nmcli d wifi con ssid password <passwd>
+nmcli dev wifi con ssid password <passwd>
 nmcli r wifi on
+nmcli radio wifi on
+nmcli r wifi off
+nmcli radio wifi off
 nmcli d
+nmcli dev status
+nmcli con show
+nmcli con up ssid
+nmcli con down ssid
+sudo nmcli --ask dev wifi connect network-ssid
+
+//convert
 convert serena.jpg -swirl 120 -gravity right serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
 convert serena.jpg -swirl 120 serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
 convert serena.jpg -swirl 120 /tmp/outputserena.jpg
@@ -97,6 +111,6 @@ lsb_release -a
 //when pacman won't upgrade
 sudo pacman -Syu --noconfirm --needed --overwrite *
 
-//find out what program is currently being used	
+//find out what program is currently being used
 xprop
 -starship is a good program

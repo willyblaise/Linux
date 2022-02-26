@@ -3,7 +3,7 @@
 
 #set -euo pipefail
 
-host=`lsb_release -a | grep -m 1 'Arch\|Void' | cut -d ":" -f 2 | xargs`
+host=`lsb_release -a | grep -m 1 'Arch\|VoidLinux' | cut -d ":" -f 2 | xargs`
 declare -a options=(
 	"Choose sound file"
 	"Play some good stuff"
@@ -12,17 +12,19 @@ declare -a options=(
 
 
 rock(){
-	sounds=~/Music/56nights
+	sounds=~/Music/EVOL
 
 	soundFiles=$(/bin/ls -1 "$sounds" | grep ".mp3")
 	declare -a soundList=$soundFiles
-	
-	choice=$(printf '%s\n' "${options[@]}" | dmenu -i -p 'Future sounds:' "${@}")
+
+	#choice=$(printf '%s\n' "${options[@]}" | dmenu -i -p 'Future sounds:' "${@}")
+	choice=$(dialog "${options[@]}")
 
 
 	if [ "$choice" == "Choose sound file" ];then
 
-		choice=$(printf '%s\n' "${soundList[@]}" | sort | dmenu -i -l 20 -p 'Choose sound file:' "$@")
+		#choice=$(printf '%s\n' "${soundList[@]}" | sort | dmenu -i -l 20 -p 'Choose sound file:' "$@")
+		choice=$(printf '%s\n' "${soundList[@]}" | sort | dialog 'Choose sound file:' "$@")
 		mpv --loop "$sounds/$choice" || exit
 
 	elif [ "$choice" == "Play some good stuff" ];then
@@ -34,7 +36,7 @@ rock(){
 
 	else
 		echo "program terminated." && exit 0
-	
+
 	fi
 }
 
@@ -44,6 +46,10 @@ case $host in
 		;;
 	"Arch")
 		echo This is Arch
+		rock
+		;;
+	"VoidLinux")
+		echo This is Void
 		rock
 		;;
 	*)
