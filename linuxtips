@@ -1,85 +1,3 @@
-########################################################
-#                                                      #
-#   check battery power via cmd line                   #
-#                                                      #
-########################################################
-upower -i /org/freedesktop/UPower/devices/battery_BAT1
-upower -i `upower -e | grep 'BAT'`
-free -h
-sensors
-
-#change default terminal
-sudo update-alternatives --config x-terminal-emulator
-
-
-
-#secret key stuff
-gpg --full-generate-key
-gpg --list-secret-keys --keyid-form LONG
-Remove cacerts and link to /etc/ssl/certs by the following commands
-
-#this is how i got Citrix workspace working
-cd /opt/Citrix/ICAClient/keystore/
-sudo rm -rf cacerts
-sudo ln -s /etc/ssl/certs cacerts
-
-#Network connectivity
-nmcli d wifi list
-nmcli dev wifi list
-nmcli d wifi connect my_network password <passwd>
-nmcli dev wifi connect my_network password <passwd>
-nmcli d wifi con ssid password <passwd>
-nmcli dev wifi con ssid password <passwd>
-nmcli r wifi on
-nmcli radio wifi on
-nmcli r wifi off
-nmcli radio wifi off
-nmcli d
-nmcli dev status
-nmcli con show
-nmcli con up ssid
-nmcli con down ssid
-sudo nmcli --ask dev wifi connect network-ssid
-
-//convert
-convert serena.jpg -swirl 120 -gravity right serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
-convert serena.jpg -swirl 120 serena-williams-splits.jpg -composite -swirl 180 /tmp/outputserena2.jpg
-convert serena.jpg -swirl 120 /tmp/outputserena.jpg
-groff -ms groff.ms -T pdf
-sudo dmidecode -t system
-lsb_release -a
-
-#user account mods
-useradd -m /home/username username
-useradd -m -d /home/username username #home directory other than default
-useradd -g groupname username
-useradd -g users -G wheel, developers username
-#add or remove from group
-gpasswd -a username
-gpasswd -d username
-groupadd groupname
-userdel -r username
-usermod -a -G groupname username
-useradd -e date username
-sudo chage -l username
-chage -M days username
-sudo chage -E 2020-06-16 nicole
-nmcli d wifi connect ssid password password
-nmcli d wifi list
-
-###############git############################################
-make local directory
-create file(s)
-
-git init
-git remote add champ https://github.com/willyblaise/Linux.git
-git remote rm origin
-git remote add origin https://github.com/willyblaise/Linux.git
-git push origin master
-git config --global credential.helper cache
-git config --global --unset credential.helper
-
-##################Void Linux###########################################
 chsh -s /bin/bash
 wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant-wlp3s0
 sudo dd if=/dev/sda4 of=/swapfile bs=1024 count=10048586
@@ -87,30 +5,55 @@ sudo mkswap /swapfile
 sudo chmod 600 /swapfile
 sudo swapon /swapfile
 wpa_passphrase ssid password
-
-#########################################LF###################################################
-sudo mv lf /usr/local/bin/
-wget https://github.com/gokcehan/lf/releases/download/r6/lf-linux-amd64.tar.gz -O lf-linux-amd64.tar.gz
-tar xvf lf-linux-amd64.tar.gz
+pass nicole
 
 
-###########################runit################################################################
-sudo sv status /var/service/acpid /var/service/agetty-hvc0 /var/service/agetty-hvsi0 /var/service/agetty-tty1 /var/service/agetty-tty2 /var/service/agetty-tty3 /var/service/agetty-tty4 /var/service/agetty-tty5 /var/service/agetty-tty6 /var/service/dhcpcd /var/service/sshd /var/service/udevd /var/service/uuidd
-sudo sv status dhcpcd
-sudo sv status /var/service/NetworkManager /var/service/acpid /var/service/agetty-hvc0 /var/service/agetty-hvsi0 /var/service/agetty-tty1 /var/service/agetty-tty2 /var/service/agetty-tty3 /var/service/agetty-tty4 /var/service/agetty-tty5 /var/service/agetty-tty6 /var/service/dbus /var/service/sshd /var/service/udevd /var/service/uuidd
-location for services /etc/sv/
-location for symbolic linking /var/service/ to enable/disable services
-sv up/down/status service
-
-/x11 dependencies
-apt-get install libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
-sudo date +%T -s 12:38:35PM
+//this is how to set the time manually
 sudo hwclock -w
+sudo date +%T -s 12:38:35PM
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
 lsb_release -a
 
-//when pacman won't upgrade
-sudo pacman -Syu --noconfirm --needed --overwrite *
+//xbps-* commands
+Basic Usage
 
-//find out what program is currently being used
-xprop
--starship is a good program
+To install a single package or list of packages (including dependencies), issue the following command:
+
+# xbps-install -S package_name1 package_name2 ...
+
+To search for a package:
+
+# xbps-query -Rs package_name
+
+To remove a single package, leaving all of its dependencies installed:
+
+# xbps-remove package_name
+
+To remove a single package and all of its dependencies that are not required by other packages:
+
+# xbps-remove -R package_name
+
+To synchronize your repository databases and update your system to the most recent packages, including their dependencies:
+
+# xbps-install -Su
+kitty --debug-config
+
+#when signing error occurs
+sudo xbps-pkgdb -m hold less
+sudo xbps-pkgdb -m unhold less
+
+#Cplus plush compile -lstdc++
+gcc -o factor factor.cpp -lstdc++
+nmap -sP 192.168.1.0/24
+ssh-keygen
+ssh-copy-id -i id_rsa.pub user@host
+
+#more tips for network manager
+nmcli device show
+nmcli device wifi connect ssid
+nmcli c up vm_varga
+nmcli c down vm_varga
+
+
+//create bootable USB stick
+dd bs=4M if=Downloads/linuxmint-20.3-cinnamon-64bit.iso of=/dev/sdb conv=fdatasync status=progress
