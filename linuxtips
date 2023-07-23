@@ -1,3 +1,89 @@
+<<<<<<< HEAD
+#network manager################
+nmcli d wifi list
+nmcli d wifi connect SSID password password
+
+#brave install################
+#git clone https://aur.archlinux.org/brave-bin.git
+#cd brave-bin
+#makepkg -si
+#brave install################
+sudo yay -Syu
+sudo pacman -Syu
+
+#add user to group
+sudo usermod -a -G groupname username
+sudo usermod -a -G sudo linuxize
+
+#add user to multiple groups
+sudo usermod -a -G group1,group2 username
+
+#remove user from group
+sudo gpasswd -d username groupname
+
+
+#To create a new group, use the groupadd command followed by the group name:
+sudo groupadd groupname
+
+#How to Delete a Group
+#To delete an existing group, use the groupdel command followed by the group name:
+sudo groupdel groupname
+
+
+#How to Change a User’s Primary Group
+#To change a user primary group, use the usermod command followed by the -g option:
+
+sudo usermod -g groupname username
+
+#In the following example, we are changing the primary group of the user linuxize to developers:
+
+sudo usermod -g developers linuxize
+
+#How to Create a New User and Assign Groups in One Command
+#The following useradd command creates a new user named nathan with primary group users and secondary groups wheel and developers.
+
+sudo useradd -g users -G wheel,developers nathan
+
+#Display User Groups
+#To display complete user information including all the groups of which a user is a member of, use the id command followed by the username:
+id username
+groups username
+sudo dmidecode -t system
+sudo lshw -short
+feh --recursive --randomize --bg-scale directory/*
+
+#################systemd###########################
+systemctl status NetworkManager.service
+systemctl start NetworkManager.service
+systemctl stop NetworkManager.service
+systemctl restart NetworkManager.service
+
+EDITOR=nano visudo
+xdg-mime query default application/pdf
+xdg-mime default mupdf.desktop application/pdf
+xdg-mime default sxiv.desktop image/jpg
+xdg-mime query default image/jpg
+file -ib bills.csv
+cat .config/mimeapps.list
+
+//pacman error
+rm /var/lib/pacman/db.lck
+date +%T -s 08:46:00
+sudo pacman -Syu --noconfirm --needed --overwrite *
+/var/lib/pacman/db.lck
+telnet towel.blinkenlights.nl
+systemd-analyze
+sudo date +%T -s 08:53:30
+rm /var/lib/pacman/db.lck
+7z x -oHanna Assignments.7z
+neofetch --ascii_distro gentoo
+neofetch -L
+neofetch --off
+
+//create new user
+sudo mkdir /home/username && sudo useradd username -d /home/username && sudo chown -R logan:logan /home/username
+xdg-mime default vlc.desktop video/x-matroska
+=======
 chsh -s /bin/bash
 wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant-wlp3s0
 sudo dd if=/dev/sda4 of=/swapfile bs=1024 count=10048586
@@ -57,3 +143,4 @@ nmcli c down vm_varga
 
 //create bootable USB stick
 dd bs=4M if=Downloads/linuxmint-20.3-cinnamon-64bit.iso of=/dev/sdb conv=fdatasync status=progress
+>>>>>>> f30c1e1485c3f4d69e1658fcb91a65eb88e2cba2
