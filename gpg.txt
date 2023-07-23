@@ -1,0 +1,8 @@
+#generate key
+gpg --full-generate-key
+
+#list keys
+gpg --list-secret-keys --keyid-format LONG
+
+#decrypt file
+gpg -d file.gpg
