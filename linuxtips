@@ -143,4 +143,8 @@ nmcli c down vm_varga
 
 //create bootable USB stick
 dd bs=4M if=Downloads/linuxmint-20.3-cinnamon-64bit.iso of=/dev/sdb conv=fdatasync status=progress
->>>>>>> f30c1e1485c3f4d69e1658fcb91a65eb88e2cba2
+
+//secure boot
+mokutil --sb-state
+mokutil --disable-validation
+mokutil --enable-validation
