@@ -1,0 +1,53 @@
+#!/bin/bash
+
+BASE_URL="https://aviationweather.gov/api/data"
+DEFAULT_STATION="KSAT"
+
+read -p "Enter station (default: $DEFAULT_STATION): " STATION
+STATION=${STATION:-$DEFAULT_STATION}
+
+echo ""
+echo "Choose data to fetch:"
+echo "1) METAR"
+echo "2) TAF"
+echo "3) PIREP"
+echo "4) SIGMET"
+echo "5) AIRMET"
+echo "6) ALL (METAR + TAF)"
+echo ""
+
+read -p "Selection: " CHOICE
+echo ""
+
+case $CHOICE in
+  1)
+    echo "=== METAR ($STATION) ==="
+    curl -s "$BASE_URL/metar?ids=$STATION&format=raw"
+    ;;
+  2)
+    echo "=== TAF ($STATION) ==="
+    curl -s "$BASE_URL/taf?ids=$STATION&format=raw"
+    ;;
+  3)
+    echo "=== PIREPs (last 2 hours) ==="
+    curl -s "$BASE_URL/pirep?hours=2&format=raw"
+    ;;
+  4)
+    echo "=== SIGMETs ==="
+    curl -s "$BASE_URL/sigmet?format=raw"
+    ;;
+  5)
+    echo "=== AIRMETs ==="
+    curl -s "$BASE_URL/airmet?format=raw"
+    ;;
+  6)
+    echo "=== METAR ($STATION) ==="
+    curl -s "$BASE_URL/metar?ids=$STATION&format=raw"
+    echo ""
+    echo "=== TAF ($STATION) ==="
+    curl -s "$BASE_URL/taf?ids=$STATION&format=raw"
+    ;;
+  *)
+    echo "Invalid option"
+    ;;
+esac

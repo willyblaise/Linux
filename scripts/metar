@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# metar.sh - fetch decoded METAR for an airport
+# Usage: ./metar.sh KSAT
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <ICAO>"
+  exit 1
+fi
+
+ICAO="$1"
+
+# Fetch JSON from NOAA
+METAR=$(curl -s "https://aviationweather.gov/api/data/metar?ids=${ICAO}&format=decoded")
+
+# Check if we got any data
+if [ -z "$METAR" ]; then
+  echo "No METAR found for $ICAO"
+  exit 1
+fi
+
+# Print nicely
+echo "$METAR"
+echo ""
